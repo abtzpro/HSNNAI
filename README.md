@@ -107,3 +107,15 @@ We use a Bidirectional LSTM (BiLSTM) which involves duplicating the LSTM layer i
 The chatbot is trained by optimizing a loss function with respect to the model parameters (i.e., the weights of the connections in the network). The goal is to find the set of parameters that results in the model generating responses that are as close as possible to the actual human responses in the dataset.
 
 After training, the LSTM model can generate a response to any given user input, making it the core component of our chatbot's ability to carry out meaningful conversations.
+
+## How HSNNAI Learns
+
+Our chatbot/NN learns and retains information using a Bidirectional LSTM (Long Short-Term Memory) model, a type of artificial recurrent neural network architecture.
+
+First, we feed our model with pairs of utterances and responses scraped from a website. The model learns to map these input-output sequences during the training process. 
+
+This learning process happens through several iterations (or epochs). In each epoch, the model makes predictions and updates its internal parameters based on the error it made. The aim is to minimize this error over time.
+
+The LSTM's unique memory cell structure allows it to learn and remember long-term dependencies in the data. It can capture the context from both past (backwards) and future (forwards) time steps, which is crucial in understanding the context in a conversation.
+
+Once the model is trained, it has learned to generate responses that are contextually appropriate to the input utterances. This trained model is then saved and used to make predictions when conversing with users.
