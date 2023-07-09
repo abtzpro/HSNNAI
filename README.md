@@ -119,3 +119,10 @@ This learning process happens through several iterations (or epochs). In each ep
 The LSTM's unique memory cell structure allows it to learn and remember long-term dependencies in the data. It can capture the context from both past (backwards) and future (forwards) time steps, which is crucial in understanding the context in a conversation.
 
 Once the model is trained, it has learned to generate responses that are contextually appropriate to the input utterances. This trained model is then saved and used to make predictions when conversing with users.
+
+## Developer Credits
+
+Adam Rivers > 
+https://abtzpro.github.io
+
+Hello Security LLC > https://hellosecurityllc.github.io
