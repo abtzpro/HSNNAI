@@ -61,3 +61,32 @@ This will return the bot's response in JSON format.
 The `scrape_data` function needs to be modified to match the actual structure of the website you're scraping data from. The website's scraping policy should be considered before proceeding. The model parameters and training configurations such as `EMBEDDING_DIM`, `LSTM_UNITS`, `DROPOUT_RATE`, `EPOCHS` should be adjusted according to the specific use case.
 
 Ensure you have the appropriate exception handling in place for production-level code. Always validate the incoming data before processing and handle exceptions appropriately to prevent the application from crashing and to provide meaningful error messages.
+
+## Script Breakdown
+
+This script is divided into multiple sections, performing distinct steps in the process of building and deploying the chatbot. Here's a detailed breakdown of each section:
+
+1. **Imports and Constants:** The script starts by importing the necessary Python libraries and defining a few constant values used in the model such as embedding dimensions, LSTM units, dropout rate, and epochs.
+
+2. **JSON Schema Definition:** A JSON schema is defined for validating incoming requests to the Flask endpoint.
+
+3. **Logging Setup:** Logging is set up to record events that happen while the script is running. This can be particularly useful for debugging or understanding the script's operations.
+
+4. **Data Scraping Function:** `scrape_data(url)` is a function to scrape conversation data from a given URL. The data includes pairs of utterances and responses. Note that this function needs to be tailored based on the actual structure of the website you want to scrape data from.
+
+5. **Text Cleaning Function:** `clean_text(text)` is a function to clean and preprocess the text data. It performs several tasks such as making text lowercase, removing text in square brackets, removing punctuation, handling emojis, and removing excess whitespaces.
+
+6. **Data Processing Function:** `process_data(df)` is a function that applies the `clean_text(text)` function to the utterances and responses in the DataFrame.
+
+7. **Model Creation Function:** `create_model(optimizer, vocab_size, max_length)` is a function to create the LSTM model with given optimizer, vocabulary size, and maximum sequence length.
+
+8. **Data Scraping and Processing:** The script scrapes the data from a given URL and processes it using the defined functions.
+
+9. **Data Preparation and Model Training:** The script tokenizes the text data, splits it into training and test sets, and fits the data to the model. It uses GridSearchCV for hyperparameter tuning and EarlyStopping for stopping the training when validation loss doesn't improve.
+
+10. **Model Saving:** The trained model and tokenizer are saved to disk for future use.
+
+11. **Flask Application:** A Flask application is created with a single endpoint `/predict` that accepts POST requests. The endpoint reloads the model and tokenizer, preprocesses the incoming data, predicts the response using the model, and returns it.
+
+The script ends by running the Flask application. If the script is run directly, the Flask application will start listening for incoming requests on port 5000.
+
