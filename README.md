@@ -35,7 +35,7 @@ nltk.download('stopwords')
 To run the script, simply use the command:
 
 ```
-python script_name.py
+python HSNNAI.py
 ```
 
 The Flask server will run on `http://localhost:5000/`.
