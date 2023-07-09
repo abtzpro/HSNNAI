@@ -90,6 +90,48 @@ This script is divided into multiple sections, performing distinct steps in the 
 
 The script ends by running the Flask application. If the script is run directly, the Flask application will start listening for incoming requests on port 5000.
 
+Here is a flow tree of the script
+
+```
+1. Start
+    |
+    ├── 2. Import required libraries and modules
+    |
+    ├── 3. Define constants and JSON validation schema
+    |
+    ├── 4. Set up logging
+    |
+    ├── 5. Define necessary functions (Data scraping, Text cleaning, Data processing, Model creation)
+    |
+    ├── 6. Scrape and process the data from the defined URL
+    |
+    ├── 7. Tokenize and sequence the text data (utterances and responses)
+    |
+    ├── 8. Split the data into training and testing sets
+    |
+    ├── 9. Perform grid search for hyperparameter optimization
+    |    |
+    |    └── 9.1 Log best parameters
+    |
+    ├──10. Train the model with best parameters
+    |
+    ├──11. Save the trained model and tokenizer
+    |
+    ├──12. Define the Flask application
+         |
+         ├──12.1 Define the '/predict' route
+         |    |
+         |    ├──12.1.1 Validate incoming JSON
+         |    |
+         |    ├──12.1.2 Load the saved model and tokenizer
+         |    |
+         |    ├──12.1.3 Process incoming utterance
+         |    |
+         |    └──12.1.4 Return predicted response
+         |
+         └──12.2 Run the Flask application
+```
+
 ## So... Like, What is it actually??
 
  *Long Short-Term Memory (LSTM) Neural Networks*
