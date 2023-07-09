@@ -90,3 +90,20 @@ This script is divided into multiple sections, performing distinct steps in the 
 
 The script ends by running the Flask application. If the script is run directly, the Flask application will start listening for incoming requests on port 5000.
 
+## So... Like, What is it actually??
+
+ *Long Short-Term Memory (LSTM) Neural Networks*
+
+Long Short-Term Memory networks, commonly known as LSTMs, are a type of Recurrent Neural Network (RNN) designed to learn from sequences of data where the temporal dynamics are relevant. They are especially known for their ability to overcome the vanishing gradient problem, a common issue in traditional RNNs, which makes them particularly suited for longer sequences of data.
+
+In the context of our chatbot project, we use LSTMs for processing sequences of text. Each input sequence consists of a series of words represented by their indices in a dictionary (known as a 'vocabulary') created from the dataset. Each word in a sequence is connected to a time step, and the order of these steps matters because the meaning of a sentence can change dramatically based on the order of its words.
+
+An LSTM network maintains a form of memory by using a series of 'gates'. These gates control the flow of information into and out of each LSTM cell, allowing it to keep or discard data based on its relevance to the task at hand.
+
+For our chatbot, the LSTM network is trained to generate a response given a sequence of words (utterance). The trained model predicts the next word in a sequence, and can generate an entire sentence by iteratively feeding the predicted word back into the model as part of the input sequence.
+
+We use a Bidirectional LSTM (BiLSTM) which involves duplicating the LSTM layer in the network so that there are now two layers side-by-side, then providing the input sequence as-is as input to the first layer, and providing a reversed copy of the input sequence to the second. This can provide additional context to the network and result in faster and even fuller learning on the problem.
+
+The chatbot is trained by optimizing a loss function with respect to the model parameters (i.e., the weights of the connections in the network). The goal is to find the set of parameters that results in the model generating responses that are as close as possible to the actual human responses in the dataset.
+
+After training, the LSTM model can generate a response to any given user input, making it the core component of our chatbot's ability to carry out meaningful conversations.
